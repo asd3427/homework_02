@@ -1,9 +1,0 @@
-#已完成
-isir  optdigits 之 pca lee lda 降?
-并以?出?形
-
-#未完成 
-1.??形中的?改? *+#
-2.?取白酒?料并完成 pca lee lda 并?制出?
-
-版本:path1
