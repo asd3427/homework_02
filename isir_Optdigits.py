@@ -65,7 +65,7 @@ X_r = pca.fit(X).transform(X)
 lda = LinearDiscriminantAnalysis(n_components=2)
 X_r2 = lda.fit(X, y).transform(X)
 
-lle =LocallyLinearEmbedding(n_neighbors=2)
+lle =LocallyLinearEmbedding(n_neighbors=30)
 X_r3 = lle.fit(X, y).transform(X)
 
 # Percentage of variance explained for each components
