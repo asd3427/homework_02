@@ -1,17 +1,26 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
-x=np.linspace(-1,1,10)
-y=x**2
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.manifold import LocallyLinearEmbedding
+import pandas as pd
+from sklearn import (manifold, datasets, decomposition, ensemble,
+                     discriminant_analysis, random_projection)
 
-fig=plt.figure(figsize=(8,4))
-ax=plt.subplot(111)
-plt.plot(x,y)
+digits = datasets.load_digits(n_class=9)
+lle =LocallyLinearEmbedding()
+X = digits.data
+y= digits.target
+target_names = digits.target_names
+n_samples, n_features = X.shape
+n_neighbors = 2
+X_r3 = lle.fit(X, y).transform(X)
+colors = ['red', 'turquoise', 'darkorange']
+lw = 2
+for color, i, target_name in zip(colors, [0, 1, 2], target_names):
+    plt.scatter(X_r3[y == i, 0], X_r3[y == i, 1], alpha=.8, color=color,
+                label=target_name)
+plt.legend(loc='best', shadow=False, scatterpoints=1)
+plt.title('LLE of IRIS dataset')
 
-for i,(_x,_y) in enumerate(zip(x,y)):
-    plt.text(_x,_y,i,color='red',fontsize=i+10)
-plt.text(0.5,0.8,'subplot words',color='blue',ha='center',transform=ax.transAxes) 
-plt.figtext(0.1,0.92,'figure words',color='green')
-plt.annotate('buttom',xy=(0,0),xytext=(0.2,0.2),arrowprops=dict(facecolor='blue', shrink=0.05))
 plt.show()
-                
