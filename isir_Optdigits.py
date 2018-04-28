@@ -1,14 +1,16 @@
 import matplotlib.pyplot as plt
 
-from sklearn import datasets
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.manifold import LocallyLinearEmbedding
 import pandas as pd
+from sklearn import (manifold, datasets, decomposition, ensemble,
+                     discriminant_analysis, random_projection)
 
 
 iris = datasets.load_iris()
 digits = datasets.load_digits()
+
 wine = pd.read_csv('winequality-white.csv')
 
 #X = iris.data
@@ -65,7 +67,8 @@ X_r = pca.fit(X).transform(X)
 lda = LinearDiscriminantAnalysis(n_components=2)
 X_r2 = lda.fit(X, y).transform(X)
 
-lle =LocallyLinearEmbedding(n_neighbors=2)
+lle =LocallyLinearEmbedding(n_neighbors=30)
+n_samples, n_features = X.shape
 X_r3 = lle.fit(X, y).transform(X)
 
 # Percentage of variance explained for each components
