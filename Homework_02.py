@@ -75,11 +75,11 @@ def digits():
       % str(pca.explained_variance_ratio_))
 
     plt.figure()
-    point = ['y*','r+', 'c>']
+    point = ['y*','r+', 'c>','<','^','o','x','.','d']
     lw=2
 
 
-    for point, i, target_name in zip(point, [0, 1, 2], target_names):
+    for point, i, target_name in zip(point,  [0, 1, 2,3,4,5,6,7,8,9], target_names):
         plt.plot(X_r[y == i, 0], X_r[y == i, 1], point, alpha=1,
                 label=target_name)
     plt.legend(loc='best', shadow=False, scatterpoints=1)
