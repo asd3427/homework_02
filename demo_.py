@@ -110,9 +110,9 @@ clf = manifold.LocallyLinearEmbedding(n_neighbors, n_components=2,
 t0 = time()
 X_lle = clf.fit_transform(X)
 print("Done. Reconstruction error: %g" % clf.reconstruction_error_)
-#plot_embedding(X_lle,
-#               "Locally Linear Embedding of the digits (time %.2fs)" %
-#               (time() - t0))
+plot_embedding(X_lle,
+               "Locally Linear Embedding of the digits (time %.2fs)" %
+               (time() - t0))
 
 
 #----------------------------------------------------------------------

@@ -2,10 +2,8 @@ import matplotlib.pyplot as plt
 
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.manifold import LocallyLinearEmbedding
-import pandas as pd
-from sklearn import (manifold, datasets, decomposition, ensemble,
-                     discriminant_analysis, random_projection)
+
+from sklearn import manifold,datasets
 
 def iris():
     
@@ -20,7 +18,7 @@ def iris():
     lda = LinearDiscriminantAnalysis(n_components=2)
     X_r2 = lda.fit(X, y).transform(X)
 
-    lle =LocallyLinearEmbedding(n_neighbors=30,n_components=2,
+    lle =manifold.LocallyLinearEmbedding(n_neighbors=30, n_components=2,
                                       method='standard')
     X_r3 = lle.fit(X, y).transform(X)
 
@@ -71,7 +69,7 @@ def digits():
     lda = LinearDiscriminantAnalysis(n_components=2)
     X_r2 = lda.fit(X, y).transform(X)
 
-    lle =LocallyLinearEmbedding( n_neighbors= 30,n_components=2,
+    lle =manifold.LocallyLinearEmbedding(n_neighbors=30, n_components=2,
                                       method='standard') # method 有四種 每種的圖都不一樣 有的會取隨機數 所以圖繪不一樣 如下所顯示 這裡使用標準
                                                      # standard,modified,hessian,ltsa
     X_lle = lle.fit(X,y).transform(X)
@@ -125,7 +123,7 @@ def wine():
     lda = LinearDiscriminantAnalysis(n_components=2)
     X_r2 = lda.fit(X, y).transform(X)
 
-    lle =LocallyLinearEmbedding(n_neighbors=30,n_components=2,
+    lle =manifold.LocallyLinearEmbedding(n_neighbors=30, n_components=2,
                                       method='standard')
     X_r3 = lle.fit(X, y).transform(X)
 
